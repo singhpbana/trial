@@ -5,6 +5,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^polls/$', 'polls.views.index'),
+    url(r'^polls/(?P<poll_id>\d+)/$','polls.views.detail'),
+    url(r'^polls/(?P<poll_id>\d+)/results/$', 'polls.views.results'),
+    url(r'^polls/(?P<poll_id>\d+)/vote/$', 'polls.views.vote'),
+
     # Examples:
     # url(r'^$', 'trial.views.home', name='home'),
     # url(r'^trial/', include('trial.foo.urls')),
